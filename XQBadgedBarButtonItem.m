@@ -19,6 +19,10 @@
 
 @implementation XQBadgedBarButtonItem
 
+@synthesize badgeFont            = _badgeFont;
+@synthesize badgeBackgroundColor = _badgeBackgroundColor;
+@synthesize badgeTextColor       = _badgeTextColor;
+
 -(id)initWithImage:(UIImage *)image target:(id)target action:(SEL)action
 {
     UIImageView *imageView  = [[UIImageView alloc] initWithImage:image];
