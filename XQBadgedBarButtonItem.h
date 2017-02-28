@@ -13,6 +13,10 @@
 
 @property (nonatomic, strong) NSString *badge;
 
++(instancetype)barButtonItemWithImageNamed:(NSString *)imageName
+                                    target:(id)target
+                                    action:(SEL)action;
+
 -(id)initWithImage:(UIImage *)image 
             target:(id)target 
             action:(SEL)action;
