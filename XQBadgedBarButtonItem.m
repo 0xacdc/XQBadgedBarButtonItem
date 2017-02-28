@@ -23,6 +23,18 @@
 @synthesize badgeBackgroundColor = _badgeBackgroundColor;
 @synthesize badgeTextColor       = _badgeTextColor;
 
++(instancetype)barButtonItemWithImageNamed:(NSString *)imageName
+                                    target:(id)target
+                                    action:(SEL)action
+{
+    UIImage *image = [UIImage imageNamed:imageName];
+                                        
+    XQBadgedBarButtonItem *bbi = [XQBadgedBarButtonItem alloc] initWithImage:image
+                                                                      target:target
+                                                                      action:action];
+    return bbi;
+}
+
 -(id)initWithImage:(UIImage *)image target:(id)target action:(SEL)action
 {
     UIImageView *imageView  = [[UIImageView alloc] initWithImage:image];
@@ -31,7 +43,9 @@
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, image.size.width+7, image.size.height+7)];
     [v addSubview:imageView];
 
-    UILabel *label                  = [[UILabel alloc] initWithFrame:CGRectMake(v.frame.size.width - 14, 0, 14, 14)];
+    CGFloat height                  = (self.badgeFont.pointSize + 8);
+ 
+    UILabel *label                  = [[UILabel alloc] initWithFrame:CGRectMake(v.frame.size.width - 14, 0, height, height)];
     label.backgroundColor           = self.badgeBackgroundColor;
     label.layer.cornerRadius        = 7;
     label.layer.masksToBounds       = YES;
@@ -90,11 +104,13 @@
     self.badgeLabel.backgroundColor = self.badgeBackgroundColor;
     self.badgeLabel.textColor       = self.badgeTextColor;
     self.badgeLabel.font            = self.badgeFont;
-        
-    CGSize newSize          = [self.badgeLabel sizeThatFits:CGSizeMake(self.buttonView.frame.size.width, 14)];
+    
+    CGFloat height          = (self.badgeFont.pointSize + 8.0);
+    C
+    CGSize newSize          = [self.badgeLabel sizeThatFits:CGSizeMake(self.buttonView.frame.size.width,height)];
     CGRect frame            = self.badgeLabel.frame;
     frame.origin.x          = MIN(self.buttonView.frame.size.width - 14, MAX(0, self.buttonView.frame.size.width - newSize.width));
-    frame.size.width        = MAX(14,newSize.width);
+    frame.size.width        = MAX(height,newSize.width);
         
     self.badgeLabel.frame   = frame;
     self.badgeLabel.hidden  = ( !self.badgeLabel.text.length );
