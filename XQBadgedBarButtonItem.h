@@ -12,6 +12,14 @@
 
 @property (nonatomic, strong) NSString *badge;
 
--(id)initWithImage:(UIImage *)image target:(id)target action:(SEL)action;
+-(id)initWithImage:(UIImage *)image 
+            target:(id)target 
+            action:(SEL)action;
+
+-(void)setBadgeFont:(UIFont *)font;
+
+-(void)setBadgeTextColor:(UIColor *)colour;
+
+-(void)setBadgeBackgroundColor:(UIColor *)colour;
 
 @end
