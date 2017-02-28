@@ -1,4 +1,5 @@
 //
+//  Forked From:
 //  FFBadgedBarButtonItem.h
 //  FilterFresh
 //
@@ -8,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FFBadgedBarButtonItem : UIBarButtonItem
+@interface XQBadgedBarButtonItem : UIBarButtonItem
 
 @property (nonatomic, strong) NSString *badge;
 
