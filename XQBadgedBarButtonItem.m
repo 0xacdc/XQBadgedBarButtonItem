@@ -29,7 +29,7 @@
 {
     UIImage *image = [UIImage imageNamed:imageName];
                                         
-    XQBadgedBarButtonItem *bbi = [XQBadgedBarButtonItem alloc] initWithImage:image
+    XQBadgedBarButtonItem *bbi = [[XQBadgedBarButtonItem alloc] initWithImage:image
                                                                       target:target
                                                                       action:action];
     return bbi;
