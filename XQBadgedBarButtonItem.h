@@ -11,20 +11,17 @@
 
 @interface XQBadgedBarButtonItem : UIBarButtonItem
 
-@property (nonatomic, strong) NSString *badge;
+@property (nonatomic, strong) NSString *    badge;
+@property (nonatomic, strong) UIColor *     badgeBackgroundColor;
+@property (nonatomic, strong) UIFont *      badgeFont;
+@property (nonatomic, strong) UIColor *     badgeTextColor;
 
 +(instancetype)barButtonItemWithImageNamed:(NSString *)imageName
                                     target:(id)target
                                     action:(SEL)action;
 
--(id)initWithImage:(UIImage *)image 
-            target:(id)target 
+-(id)initWithImage:(UIImage *)image
+            target:(id)target
             action:(SEL)action;
-
--(void)setBadgeFont:(UIFont *)font;
-
--(void)setBadgeTextColor:(UIColor *)colour;
-
--(void)setBadgeBackgroundColor:(UIColor *)colour;
 
 @end
