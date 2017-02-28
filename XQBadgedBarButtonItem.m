@@ -106,7 +106,7 @@
     self.badgeLabel.font            = self.badgeFont;
     
     CGFloat height          = (self.badgeFont.pointSize + 8.0);
-    C
+   
     CGSize newSize          = [self.badgeLabel sizeThatFits:CGSizeMake(self.buttonView.frame.size.width,height)];
     CGRect frame            = self.badgeLabel.frame;
     frame.origin.x          = MIN(self.buttonView.frame.size.width - 14, MAX(0, self.buttonView.frame.size.width - newSize.width));
