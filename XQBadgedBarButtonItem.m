@@ -112,17 +112,22 @@
     NSString *string                = ( self.badge.length ) ? self.badge : @"8";
     CGSize badgeSize                = [string sizeWithAttributes:@{NSFontAttributeName:self.badgeFont}];
 
-    CGRect lFrame                   = self.badgeLabel.frame;
-    lFrame.size.width               = badgeSize.width;
-    lFrame.size.height              = badgeSize.height;
+	CGRect lFrame                   = self.badgeLabel.frame;
 
-    //CGSize newSize          = [self.badgeLabel sizeThatFits:CGSizeMake(self.buttonView.frame.size.width,height)];
-    //CGRect frame            = self.badgeLabel.frame;
-    //frame.origin.x          = MIN(self.buttonView.frame.size.width - 14, MAX(0, self.buttonView.frame.size.width - newSize.width));
-    //frame.size.width        = MAX(height,newSize.width);
+	CGFloat scale					= UIScreen.mainScreen.scale;
 
-    self.badgeLabel.frame           = lFrame;
-    self.badgeLabel.hidden          = ( !self.badgeLabel.text.length );
+	lFrame.size.width               = (badgeSize.width  + (3 * scale));	// Add Padding
+    lFrame.size.height              = (badgeSize.height + (3 * scale)); // Add Padding
+
+	CGFloat radius					= (lFrame.size.height / 2);
+
+	lFrame.size.width				= MAX(lFrame.size.width, lFrame.size.height);
+
+    self.badgeLabel.frame				= lFrame;
+	self.badgeLabel.layer.cornerRadius	= radius;
+	self.badgeLabel.layer.masksToBounds = YES;
+
+	self.badgeLabel.hidden				= ( !self.badgeLabel.text.length );
 
     [self.buttonView setNeedsDisplay];
 }
