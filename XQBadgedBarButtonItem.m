@@ -91,17 +91,20 @@
         return;
     }
 
-    self.badgeLabel.text = badge;
+    dispatch_async(dispatch_get_main_queue(), ^
+    {
+        self.badgeLabel.text = badge;
 
-    if ( ( !badge ) ||
-         ( !badge.length ) )
-    {
-        self.badgeLabel.hidden = YES;
-    }
-    else
-    {
-        [self refreshBadge];
-    }
+        if ( ( !badge        ) ||
+             ( !badge.length ) )
+        {
+            self.badgeLabel.hidden = YES;
+        }
+        else
+        {
+            [self refreshBadge];
+        }
+    });
 }
 - (void)refreshBadge
 {
